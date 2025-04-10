@@ -7,11 +7,10 @@
     <title>关于我们</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "宋体", "Times New Roman", sans-serif;
             margin: 0;
             padding: 0;
-            /* 修改背景颜色为浅黄色 */
-            background-color: #FFFFCC;
+            background-color: transparent;
         }
 
         nav {
@@ -41,6 +40,44 @@
             max-width: 800px;
             margin: 0 auto;
         }
+
+        button {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: green;
+            font-weight: bold;
+        }
+
+        .chinese-text {
+            color: green;
+        }
+
+        .english-text {
+            color: green;
+            font-weight: bold;
+        }
+
+        .person-intro {
+            position: relative;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .person-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .person-info {
+            text-align: left;
+        }
     </style>
 </head>
 
@@ -53,11 +90,124 @@
         </ul>
     </nav>
     <main>
-        <h1>关于我们</h1>
-        <p>“十人书巢”是一个充满温馨与知识的地方，在这里，十位热爱书籍的伙伴汇聚一堂，共同分享阅读的快乐与感悟。我们希望通过书巢，让更多人感受到书籍的魅力。</p>
-        <p>"Ten People's Book Nest" is a place full of warmth and knowledge. Here, ten book lovers gather together to share the joy and insights of reading. We hope to let more people feel the charm of books through the book nest.</p>
+        <button id="lang-toggle">切换语言</button>
+        <h1 data-chinese="关于我们" data-english="About Us">关于我们</h1>
+        <p class="chinese-text" data-english="Ten People's Book Nest is a place full of warmth and knowledge. Here, ten book lovers gather together to share the joy and insights of reading. We hope to let more people feel the charm of books through the book nest.">“十人书巢”是一个充满温馨与知识的地方，在这里，十位热爱书籍的伙伴汇聚一堂，共同分享阅读的快乐与感悟。我们希望通过书巢，让更多人感受到书籍的魅力。</p>
+        <p class="english-text" data-chinese="“十人书巢”是一个充满温馨与知识的地方，在这里，十位热爱书籍的伙伴汇聚一堂，共同分享阅读的快乐与感悟。我们希望通过书巢，让更多人感受到书籍的魅力。">"Ten People's Book Nest" is a place full of warmth and knowledge. Here, ten book lovers gather together to share the joy and insights of reading. We hope to let more people feel the charm of books through the book nest.</p>
         <img src="poetry_cartoon.jpg" alt="诗歌卡通图片">
+
+        <!-- 人物介绍部分 -->
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar1.jpg" alt="老大头像">
+            <div class="person-info">
+                <p data-chinese="昵称：老大" data-english="Nickname: The Eldest">昵称：老大</p>
+                <p data-chinese="性别：女" data-english="Gender: Female">性别：女</p>
+                <p data-chinese="介绍：ISFJ的上班族一枚，爱好读各种类型书籍，尤其是科幻类小说。" data-english="Introduction: An ISFJ office worker who loves reading all kinds of books, especially science fiction novels.">介绍：ISFJ的上班族一枚，爱好读各种类型书籍，尤其是科幻类小说。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar2.jpg" alt="老二头像">
+            <div class="person-info">
+                <p data-chinese="昵称：老二" data-english="Nickname: The Second">昵称：老二</p>
+                <p data-chinese="性别：男" data-english="Gender: Male">性别：男</p>
+                <p data-chinese="介绍：INTP的学生党，痴迷于哲学类书籍，喜欢深度思考。" data-english="Introduction: An INTP student who is obsessed with philosophy books and loves in - depth thinking.">介绍：INTP的学生党，痴迷于哲学类书籍，喜欢深度思考。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar3.jpg" alt="老三头像">
+            <div class="person-info">
+                <p data-chinese="昵称：老三" data-english="Nickname: The Third">昵称：老三</p>
+                <p data-chinese="性别：女" data-english="Gender: Female">性别：女</p>
+                <p data-chinese="介绍：ENFP的自由职业者，热爱文学类书籍，擅长写作。" data-english="Introduction: An ENFP freelancer who loves literature books and is good at writing.">介绍：ENFP的自由职业者，热爱文学类书籍，擅长写作。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar4.jpg" alt="老四头像">
+            <div class="person-info">
+                <p data-chinese="昵称：老四" data-english="Nickname: The Fourth">昵称：老四</p>
+                <p data-chinese="性别：男" data-english="Gender: Male">性别：男</p>
+                <p data-chinese="介绍：ISTJ的工程师，喜欢历史类书籍，对古代文化有深入研究。" data-english="Introduction: An ISTJ engineer who likes history books and has in - depth research on ancient culture.">介绍：ISTJ的工程师，喜欢历史类书籍，对古代文化有深入研究。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar5.jpg" alt="老五头像">
+            <div class="person-info">
+                <p data-chinese="昵称：老五" data-english="Nickname: The Fifth">昵称：老五</p>
+                <p data-chinese="性别：女" data-english="Gender: Female">性别：女</p>
+                <p data-chinese="介绍：ESFJ的教师，热衷于教育类书籍，致力于提升教学质量。" data-english="Introduction: An ESFJ teacher who is enthusiastic about education books and is committed to improving teaching quality.">介绍：ESFJ的教师，热衷于教育类书籍，致力于提升教学质量。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar6.jpg" alt="小六头像">
+            <div class="person-info">
+                <p data-chinese="昵称：小六" data-english="Nickname: The Sixth">昵称：小六</p>
+                <p data-chinese="性别：男" data-english="Gender: Male">性别：男</p>
+                <p data-chinese="介绍：INTJ的创业者，专注于商业类书籍，有敏锐的市场洞察力。" data-english="Introduction: An INTJ entrepreneur who focuses on business books and has sharp market insight.">介绍：INTJ的创业者，专注于商业类书籍，有敏锐的市场洞察力。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar7.jpg" alt="小七头像">
+            <div class="person-info">
+                <p data-chinese="昵称：小七" data-english="Nickname: The Seventh">昵称：小七</p>
+                <p data-chinese="性别：女" data-english="Gender: Female">性别：女</p>
+                <p data-chinese="介绍：ENFJ的活动策划，喜爱心理学类书籍，善于与人沟通。" data-english="Introduction: An ENFJ event planner who loves psychology books and is good at communicating with people.">介绍：ENFJ的活动策划，喜爱心理学类书籍，善于与人沟通。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar8.jpg" alt="小八头像">
+            <div class="person-info">
+                <p data-chinese="昵称：小八" data-english="Nickname: The Eighth">昵称：小八</p>
+                <p data-chinese="性别：女" data-english="Gender: Male">性别：女</p>
+                <p data-chinese="介绍：ISTP的摄影师，钟情于艺术摄影类书籍，作品富有创意。" data-english="Introduction: An ISTP photographer who is fond of art photography books and has creative works.">介绍：ISTP的摄影师，钟情于艺术摄影类书籍，作品富有创意。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar9.jpg" alt="老九头像">
+            <div class="person-info">
+                <p data-chinese="昵称：老九" data-english="Nickname: The Ninth">昵称：老九</p>
+                <p data-chinese="性别：女" data-english="Gender: Female">性别：女</p>
+                <p data-chinese="介绍：ESFP的演员，热爱戏剧类书籍，舞台表演经验丰富。" data-english="Introduction: An ESFP actor who loves drama books and has rich stage performance experience.">介绍：ESFP的演员，热爱戏剧类书籍，舞台表演经验丰富。</p>
+            </div>
+        </div>
+        <div class="person-intro">
+            <img class="person-avatar" src="avatar10.jpg" alt="小十头像">
+            <div class="person-info">
+                <p data-chinese="昵称：小十" data-english="Nickname: The Tenth">昵称：小十</p>
+                <p data-chinese="性别：女" data-english="Gender: Male">性别：女</p>
+                <p data-chinese="介绍：INFP的音乐人，喜欢音乐理论类书籍，擅长创作旋律。" data-english="Introduction: An INFP musician who likes music theory books and is good at creating melodies.">介绍：INFP的音乐人，喜欢音乐理论类书籍，擅长创作旋律。</p>
+            </div>
+        </div>
     </main>
+    <script>
+        const langToggle = document.getElementById('lang-toggle');
+        const elements = document.querySelectorAll('[data-chinese], [data-english]');
+        let isChinese = true;
+
+        langToggle.addEventListener('click', () => {
+            isChinese = !isChinese;
+            elements.forEach(element => {
+                if (isChinese) {
+                    element.textContent = element.getAttribute('data-chinese');
+                } else {
+                    element.textContent = element.getAttribute('data-english');
+                }
+            });
+        });
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        const personInfoElements = document.querySelectorAll('.person-info p');
+        personInfoElements.forEach(element => {
+            element.style.color = getRandomColor();
+        });
+    </script>
 </body>
 
 </html>

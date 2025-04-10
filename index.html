@@ -40,10 +40,37 @@
             max-width: 800px;
             margin: 0 auto;
         }
+
+        /* 初始隐藏子内容 */
+        .sub-content {
+            display: none;
+        }
+
+        /* 语言切换按钮样式 */
+        #language-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* 三月推书样式 */
+        #march-books .book-title {
+            color: black;
+            font-weight: bold;
+        }
+
+        #march-books p:nth-of-type(1) {
+            color: blue;
+                   }
+
+        #march-books p:nth-of-type(2) {
+            color: pink;
+                   }
     </style>
 </head>
 
 <body>
+    <button id="language-switch">中文/English</button>
     <nav>
         <ul>
             <li><a href="index.html">首页</a></li>
@@ -52,21 +79,248 @@
         </ul>
     </nav>
     <main>
-        <h1>欢迎来到我们的网站</h1>
-        <p>这是网站的首页，你可以点击导航栏的链接浏览其他页面。</p>
-        <h2>索引</h2>
+        <h1 data-lang="zh">欢迎来到我们的网站</h1>
+        <h1 data-lang="en" style="display: none;">Welcome to our website</h1>
+        <p data-lang="zh">这是网站的首页，你可以点击导航栏的链接浏览其他页面。</p>
+        <p data-lang="en" style="display: none;">This is the homepage of the website. You can click the links in the navigation bar to browse other pages.</p>
+        <h2 data-lang="zh">索引</h2>
+        <h2 data-lang="en" style="display: none;">Index</h2>
         <ul>
-            <li><a href="#">巢屋书籍</a>
-                <ul>
-                    <li>《献给阿尔吉侬的花束》</li>
-                    <li>《百年孤独》</li>
-                    <li>《平凡的世界》</li>
+            <li><a href="#" onclick="toggleContent('book-content')" data-lang="zh">巢屋书籍</a>
+                <a href="#" onclick="toggleContent('book-content')" data-lang="en" style="display: none;">Nest Books</a>
+                <ul id="book-content" class="sub-content">
+                    <!-- 一月推书 -->
+                    <li><a href="#" onclick="toggleContent('january-books')" data-lang="zh">一月推书</a>
+                        <a href="#" onclick="toggleContent('january-books')" data-lang="en" style="display: none;">January Book Recommendations</a>
+                        <ul id="january-books" class="sub-content">
+                            <!-- 可添加一月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 二月推书 -->
+                    <li><a href="#" onclick="toggleContent('february-books')" data-lang="zh">二月推书</a>
+                        <a href="#" onclick="toggleContent('february-books')" data-lang="en" style="display: none;">February Book Recommendations</a>
+                        <ul id="february-books" class="sub-content">
+                            <!-- 可添加二月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 三月推书 -->
+                    <li><a href="#" onclick="toggleContent('march-books')" data-lang="zh">三月推书</a>
+                        <a href="#" onclick="toggleContent('march-books')" data-lang="en" style="display: none;">March Book Recommendations</a>
+                        <ul id="march-books" class="sub-content">
+                            <!-- 《百年孤独》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《百年孤独》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*One Hundred Years of Solitude*</h3>
+                                <p data-lang="zh">作者: 加西亚·马尔克斯。</p>
+                                <p data-lang="zh">内容: 描绘了布恩迪亚家族七代人的传奇故事，以及加勒比海沿岸小镇马孔多的百年兴衰，反映了拉丁美洲一个世纪以来风云变幻的历史。</p>
+                                <p data-lang="en" style="display: none;">Author: Gabriel García Márquez.</p>
+                                <p data-lang="en" style="display: none;">Content: It depicts the legendary stories of seven generations of the Buendía family and the century - long rise and fall of the small town of Macondo on the Caribbean coast, reflecting the changing history of Latin America over a century.</p>
+                            </li>
+                            <!-- 《世界上的迷路者》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《世界上的迷路者》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*The Lost Ones in the World*</h3>
+                                <p data-lang="zh">作者: 待补充。</p>
+                                <p data-lang="zh">内容: 待补充。</p>
+                                <p data-lang="en" style="display: none;">Author: To be supplemented.</p>
+                                <p data-lang="en" style="display: none;">Content: To be supplemented.</p>
+                            </li>
+                            <!-- 《为权利而斗争》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《为权利而斗争》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*The Struggle for Rights*</h3>
+                                <p data-lang="zh">作者: 鲁道夫·冯·耶林。</p>
+                                <p data-lang="zh">内容: 本书以其犀利的语言和深刻的思想，阐述了权利的本质和为权利而斗争的重要性。</p>
+                                <p data-lang="en" style="display: none;">Author: Rudolf von Jhering.</p>
+                                <p data-lang="en" style="display: none;">Content: With its sharp language and profound thoughts, this book elaborates on the essence of rights and the importance of struggling for rights.</p>
+                            </li>
+                            <!-- 《你的夏天还好吗》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《你的夏天还好吗》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*Are You Okay This Summer?*</h3>
+                                <p data-lang="zh">作者: 金爱烂。</p>
+                                <p data-lang="zh">内容: 书中收录的七个故事，展现了韩国女性在不同生活场景中的困境与挣扎。</p>
+                                <p data-lang="en" style="display: none;">Author: Kim Ai - ran.</p>
+                                <p data-lang="en" style="display: none;">Content: The seven stories in this book show the dilemmas and struggles of Korean women in different life scenarios.</p>
+                            </li>
+                            <!-- 《当尼采哭泣》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《当尼采哭泣》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*When Nietzsche Wept*</h3>
+                                <p data-lang="zh">作者: 欧文·亚隆。</p>
+                                <p data-lang="zh">内容: 以心理治疗为背景，讲述了尼采与布雷尔医生之间的心灵对话。</p>
+                                <p data-lang="en" style="display: none;">Author: Irvin D. Yalom.</p>
+                                <p data-lang="en" style="display: none;">Content: Set against the background of psychotherapy, it tells the spiritual dialogue between Nietzsche and Dr. Breuer.</p>
+                            </li>
+                            <!-- 《鼠疫》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《鼠疫》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*The Plague*</h3>
+                                <p data-lang="zh">作者: 阿尔贝·加缪。</p>
+                                <p data-lang="zh">内容: 描写了北非一个城市在鼠疫肆虐时人们的生活状态和抗争精神。</p>
+                                <p data-lang="en" style="display: none;">Author: Albert Camus.</p>
+                                <p data-lang="en" style="display: none;">Content: It depicts the living conditions and fighting spirit of people in a North African city during the plague.</p>
+                            </li>
+                            <!-- 《红玫瑰与白玫瑰》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《红玫瑰与白玫瑰》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*Red Rose, White Rose*</h3>
+                                <p data-lang="zh">作者: 张爱玲。</p>
+                                <p data-lang="zh">内容: 讲述了主人公振保与两位女性的情感纠葛，揭示了人性的复杂。</p>
+                                <p data-lang="en" style="display: none;">Author: Eileen Chang.</p>
+                                <p data-lang="en" style="display: none;">Content: It tells the emotional entanglement of the protagonist Zhenbao with two women, revealing the complexity of human nature.</p>
+                            </li>
+                            <!-- 《人类简史：从动物到上帝》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《人类简史：从动物到上帝》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*Sapiens: A Brief History of Humankind*</h3>
+                                <p data-lang="zh">作者: 尤瓦尔·赫拉利。</p>
+                                <p data-lang="zh">内容: 从全新的视角讲述了人类从原始石器时代到 21 世纪的发展历程。</p>
+                                <p data-lang="en" style="display: none;">Author: Yuval Noah Harari.</p>
+                                <p data-lang="en" style="display: none;">Content: It tells the development process of human beings from the primitive Stone Age to the 21st century from a brand - new perspective.</p>
+                            </li>
+                            <!-- 《历史深处的忧虑》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《历史深处的忧虑》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*Concerns Deep in History*</h3>
+                                <p data-lang="zh">作者: 林达。</p>
+                                <p data-lang="zh">内容: 通过讲述美国的一些社会现象和历史事件，探讨了美国的民主制度和文化。</p>
+                                <p data-lang="en" style="display: none;">Author: Linda.</p>
+                                <p data-lang="en" style="display: none;">Content: By telling some social phenomena and historical events in the United States, it explores the American democratic system and culture.</p>
+                            </li>
+                            <!-- 《沧浪之水》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《沧浪之水》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*The Water of the Canglang River*</h3>
+                                <p data-lang="zh">作者: 阎真。</p>
+                                <p data-lang="zh">内容: 以主人公池大为的成长经历为主线，反映了知识分子在现实社会中的无奈与挣扎。</p>
+                                <p data-lang="en" style="display: none;">Author: Yan Zhen.</p>
+                                <p data-lang="en" style="display: none;">Content: With the growth experience of the protagonist Chi Dawei as the main line, it reflects the helplessness and struggle of intellectuals in the real society.</p>
+                            </li>
+                            <!-- 《与情绪和解》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《与情绪和解》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*Making Peace with Emotions*</h3>
+                                <p data-lang="zh">作者: 罗娜·雷纳。</p>
+                                <p data-lang="zh">内容: 提供了应对情绪问题的方法和策略，帮助读者更好地管理情绪。</p>
+                                <p data-lang="en" style="display: none;">Author: Ronna Rayner.</p>
+                                <p data-lang="en" style="display: none;">Content: It provides methods and strategies for dealing with emotional problems to help readers better manage their emotions.</p>
+                            </li>
+                            <!-- 《冥想五分钟，等于深睡一小时》 -->
+                            <li>
+                                <h3 class="book-title" data-lang="zh">《冥想五分钟，等于深睡一小时》</h3>
+                                <h3 class="book-title" data-lang="en" style="display: none;">*Five Minutes of Meditation Equals One Hour of Deep Sleep*</h3>
+                                <p data-lang="zh">作者: 待补充。</p>
+                                <p data-lang="zh">内容: 待补充。</p>
+                                <p data-lang="en" style="display: none;">Author: To be supplemented.</p>
+                                <p data-lang="en" style="display: none;">Content: To be supplemented.</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 四月推书 -->
+                    <li><a href="#" onclick="toggleContent('april-books')" data-lang="zh">四月推书</a>
+                        <a href="#" onclick="toggleContent('april-books')" data-lang="en" style="display: none;">April Book Recommendations</a>
+                        <ul id="april-books" class="sub-content">
+                            <!-- 可添加四月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 五月推书 -->
+                    <li><a href="#" onclick="toggleContent('may-books')" data-lang="zh">五月推书</a>
+                        <a href="#" onclick="toggleContent('may-books')" data-lang="en" style="display: none;">May Book Recommendations</a>
+                        <ul id="may-books" class="sub-content">
+                            <!-- 可添加五月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 六月推书 -->
+                    <li><a href="#" onclick="toggleContent('june-books')" data-lang="zh">六月推书</a>
+                        <a href="#" onclick="toggleContent('june-books')" data-lang="en" style="display: none;">June Book Recommendations</a>
+                        <ul id="june-books" class="sub-content">
+                            <!-- 可添加六月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 七月推书 -->
+                    <li><a href="#" onclick="toggleContent('july-books')" data-lang="zh">七月推书</a>
+                        <a href="#" onclick="toggleContent('july-books')" data-lang="en" style="display: none;">July Book Recommendations</a>
+                        <ul id="july-books" class="sub-content">
+                            <!-- 可添加七月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 八月推书 -->
+                    <li><a href="#" onclick="toggleContent('august-books')" data-lang="zh">八月推书</a>
+                        <a href="#" onclick="toggleContent('august-books')" data-lang="en" style="display: none;">August Book Recommendations</a>
+                        <ul id="august-books" class="sub-content">
+                            <!-- 可添加八月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 九月推书 -->
+                    <li><a href="#" onclick="toggleContent('september-books')" data-lang="zh">九月推书</a>
+                        <a href="#" onclick="toggleContent('september-books')" data-lang="en" style="display: none;">September Book Recommendations</a>
+                        <ul id="september-books" class="sub-content">
+                            <!-- 可添加九月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 十月推书 -->
+                    <li><a href="#" onclick="toggleContent('october-books')" data-lang="zh">十月推书</a>
+                        <a href="#" onclick="toggleContent('october-books')" data-lang="en" style="display: none;">October Book Recommendations</a>
+                        <ul id="october-books" class="sub-content">
+                            <!-- 可添加十月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 十一月推书 -->
+                    <li><a href="#" onclick="toggleContent('november-books')" data-lang="zh">十一月推书</a>
+                        <a href="#" onclick="toggleContent('november-books')" data-lang="en" style="display: none;">November Book Recommendations</a>
+                        <ul id="november-books" class="sub-content">
+                            <!-- 可添加十一月书籍信息 -->
+                        </ul>
+                    </li>
+                    <!-- 十二月推书 -->
+                    <li><a href="#" onclick="toggleContent('december-books')" data-lang="zh">十二月推书</a>
+                        <a href="#" onclick="toggleContent('december-books')" data-lang="en" style="display: none;">December Book Recommendations</a>
+                        <ul id="december-books" class="sub-content">
+                            <!-- 可添加十二月书籍信息 -->
+                        </ul>
+                    </li>
                 </ul>
             </li>
-            <li><a href="#">巢言巢语</a></li>
-            <li><a href="#">巢巢活动</a></li>
+            <li><a href="#" onclick="toggleContent('chat-content')" data-lang="zh">巢言巢语</a>
+                <a href="#" onclick="toggleContent('chat-content')" data-lang="en" style="display: none;">Nest Chats</a>
+                <ul id="chat-content" class="sub-content">
+                    <!-- 可添加巢言巢语相关内容 -->
+                </ul>
+            </li>
+            <li><a href="#" onclick="toggleContent('event-content')" data-lang="zh">巢巢活动</a>
+                <a href="#" onclick="toggleContent('event-content')" data-lang="en" style="display: none;">Nest Events</a>
+                <ul id="event-content" class="sub-content">
+                    <!-- 可添加巢巢活动相关内容 -->
+                </ul>
+            </li>
         </ul>
     </main>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+
+        document.getElementById('language-switch').addEventListener('click', function () {
+            var elements = document.querySelectorAll('[data-lang]');
+            var currentLang = document.querySelector('h1[data-lang]:not([style*="display: none"])').getAttribute('data-lang');
+            var newLang = currentLang === 'zh' ? 'en' : 'zh';
+
+            elements.forEach(function (element) {
+                if (element.getAttribute('data-lang') === newLang) {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
+    
